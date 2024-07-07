@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+        }
+        .error {
+            color: #ff0000;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .instagram {
+            margin-top: 5px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .instagram:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function showLoadingMessage() {
+            const form = document.querySelector('form');
+            const message = document.createElement('div');
+            message.className = 'message';
+            message.textContent = 'Downloading... Please wait.';
+            form.appendChild(message);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Video Downloader</h1>
+        <form method="POST" onsubmit="showLoadingMessage()">
+            <label for="url">YouTube Video URL:</label>
+            <input type="text" id="url" name="url" required>
+            <button type="submit">Download</button>
+        </form>
+        {% if success %}
+            <div class="message">
+                <h2>Download completed successfully!</h2>
+                <p>Title: {{ title }}</p>
+                <a href="{{ url_for('download_file', filename=filename) }}">Download {{ filename }}</a>
+            </div>
+        {% elif error %}
+            <div class="message error">
+                <h2>Error: {{ error }}</h2>
+            </div>
+        {% endif %}
+    </div>
+    <footer>
+        <a class="instagram" href="https://www.instagram.com/YOUR_INSTAGRAM_ID" target="_blank">made by Rohan</a>
+    </footer>
+</body>
+</html>
