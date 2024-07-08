@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Video Downloader</title>
     <style>
+        /* General styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -17,6 +18,8 @@
             height: 100vh;
             color: #333;
         }
+
+        /* Container styles */
         .container {
             background: #fff;
             padding: 20px;
@@ -26,19 +29,25 @@
             max-width: 500px;
             width: 100%;
         }
+
+        /* Heading styles */
         h1 {
             margin-bottom: 20px;
             color: #333;
         }
+
+        /* Form styles */
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         label {
             margin-bottom: 10px;
             font-weight: bold;
         }
+
         input[type="text"] {
             padding: 10px;
             margin-bottom: 20px;
@@ -46,6 +55,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         button {
             padding: 10px 20px;
             border: none;
@@ -55,28 +65,42 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
+        /* Message styles */
         .message {
             margin-top: 20px;
         }
+
         .error {
             color: #ff0000;
         }
+
+        /* Footer styles */
         footer {
             margin-top: 20px;
             text-align: center;
             font-size: 14px;
             color: #777;
         }
+
         .instagram {
             margin-top: 5px;
             color: #007bff;
             text-decoration: none;
         }
+
         .instagram:hover {
             text-decoration: underline;
+        }
+
+        /* Logo styles */
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
         }
     </style>
     <script>
@@ -91,6 +115,7 @@
 </head>
 <body>
     <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo" class="logo">
         <h1>YouTube Video Downloader</h1>
         <form method="POST" onsubmit="showLoadingMessage()">
             <label for="url">YouTube Video URL:</label>
@@ -110,7 +135,7 @@
         {% endif %}
     </div>
     <footer>
-        <a class="instagram" href="https://www.instagram.com/YOUR_INSTAGRAM_ID" target="_blank">made by Rohan</a>
+        <a class="instagram" href="https://www.instagram.com/rohan_30.01/" target="_blank">made by Rohan</a>
     </footer>
 </body>
 </html>
